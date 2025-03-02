@@ -36,66 +36,48 @@ You can install these libraries using `pip`:
 ```sh
 pip install numpy pandas matplotlib seaborn
 ```
-Data Cleaning
+## Data Cleaning
 Clean the data by checking for duplicates and handling missing values:
-# Display the number of rows and columns
+### Display the number of rows and columns
 print("\nShape of the dataframe:")
 print(df.shape)
 
-# Get an overview of the dataframe
+### Get an overview of the dataframe
 print("\nDataframe info:")
 df.info()
 
-# Check for duplicate rows
+### Check for duplicate rows
 print("\nNumber of duplicate rows:")
 print(df.duplicated().sum())
 
-# Check for missing values
+### Check for missing values
 print("\nMissing values in each column:")
 print(df.isnull().sum())
 
-# Drop rows where 'AQI' has missing values
+### Drop rows where 'AQI' has missing values
 df.dropna(subset=['AQI'], inplace=True)
 
-# Recheck for missing values
+### Recheck for missing values
 print("\nMissing values after dropping rows with missing 'AQI':")
 print(df.isnull().sum().sort_values(ascending=False))
 
-# Display the new shape of the dataframe
+### Display the new shape of the dataframe
 print("\nNew shape of the dataframe:")
 print(df.shape)
 
-# Summary statistics of the dataframe
+### Summary statistics of the dataframe
 print("\nSummary statistics of the dataframe:")
 print(df.describe().T)  # Transpose for better readability
 
-# Percentage of null values in each column
+### Percentage of null values in each column
 null_values_percentage = (df.isnull().sum() / df.isnull().count() * 100).sort_values(ascending=False)
 print("\nPercentage of null values in each column:")
 print(null_values_percentage)
 
-#Exploratory Data Analysis (EDA)
-Visualize the distribution of 'AQI' and relationships with other variables:
-# Visualize distribution of AQI
-sns.histplot(df['AQI'], kde=True)
-plt.title('Distribution of AQI')
-plt.show()
-
-# Visualize AQI by City
-sns.boxplot(x='City', y='AQI', data=df)
-plt.title('AQI by City')
-plt.show()
-
-# Correlation Analysis
-plt.figure(figsize=(10, 8))
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-plt.title('Correlation Matrix')
-plt.show()
-
-#Contributing
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
-#License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
